@@ -23,7 +23,8 @@ export default function makeAddShop (
             shop.id = shopRes.id
             const owner = new Owner(ownerData.id, ownerData.avatar, ownerData.name, ownerData.phoneNumber, ownerData.email, ownerData.shops)
             if (owner.id) {
-               return ownerCollection.addShop(owner.id, shop.id)
+               await ownerCollection.addShop(owner.id, shop.id)
+               return { statusCode: 200, body: { message: 'success'}}
             } else {
                 const authRes = await firebaseAuthentification.signup({
                     photoURL: ownerData.avatar,
@@ -36,13 +37,14 @@ export default function makeAddShop (
                 })
                 owner.id = authRes.uid
 
-                return ownerCollection.set(owner.id, {
+                await ownerCollection.set(owner.id, {
                     name: owner.name,
                     avatar: owner.avatar,
                     phoneNumber: owner.phoneNumber,
                     email: owner.email,
                     shops: [shop.id]
                 })
+                return { statusCode: 200, body: { message: 'success'}}
             }
         }
     }

@@ -19,12 +19,13 @@ export default function makeAddAddEmployee(
         })
         employee.id = authRes.uid
 
-        return adminCollection.set(employee.id, {
+        await adminCollection.set(employee.id, {
             name: employee.name,
             avatar: employee.avatar,
             phoneNumber: employee.phoneNumber,
             role: employee.role,
             shopId: employee.shopId
         })
+        return { statusCode: 200, body: { message: 'success'}}
     }
 }

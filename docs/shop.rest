@@ -1,0 +1,21 @@
+POST http://localhost:4000/api/shop HTTP/1.1
+content-type: application/json
+
+{  
+    "owner": {
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/sonik-shop.appspot.com/o/df-user.jpg?alt=media&token=1ddbf787-f3bf-45ef-b4d3-2436fcfe8a65",
+        "name": "Abalo Doe",
+        "phoneNumber": "+22890000001",
+        "email": "abalodoe@gmail.com"
+    },
+    "shop": {
+        "name": "DOE et fils",
+        "address": "Totsi, Lome-Togo",
+        "accountExpiredAt": "",
+        "geolocation": {
+            "longitude": "",
+            "latitude": ""
+        }
+    }
+
+}

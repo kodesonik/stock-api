@@ -6,6 +6,7 @@ export default function makePostAdminController(
             return addAdmin(httpRequest.body)
         } catch (err) {
             console.log(err.message)
+            return { statusCode: 500, body: { message: err.message}}
         }
     }
 }

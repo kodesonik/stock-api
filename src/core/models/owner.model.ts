@@ -11,7 +11,7 @@ export default class Owner extends User implements IOwner {
         name: string,
         phoneNumber: string,
         email: string,
-        shops: string[]
+        shops: string[] = []
     ) {
         super(id, avatar, name, phoneNumber)
         super._role = Role.OWNER
