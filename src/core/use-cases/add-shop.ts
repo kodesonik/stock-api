@@ -42,6 +42,7 @@ export default function makeAddShop (
                     avatar: owner.avatar,
                     phoneNumber: owner.phoneNumber,
                     email: owner.email,
+                    role: owner.role,
                     shops: [shop.id]
                 })
                 return { statusCode: 200, body: { message: 'success'}}
