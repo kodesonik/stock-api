@@ -7,7 +7,8 @@ export default function makeAddAdmin(
     firebaseAuthentification: FirebaseAuthentification
 ) {
     return async function addAdmin(data: IAdmin) {
-        if (!data) throw new Error('')
+        console.log(data)
+        if (!data || Object.keys(data).length === 0 ) throw new Error('Missing data')
         const admin = new Admin(data.id, data.avatar, data.name, data.phoneNumber, data.email)
         
         const authRes = await firebaseAuthentification.signup({
@@ -21,11 +22,14 @@ export default function makeAddAdmin(
         })
         admin.id = authRes.uid
 
-        return adminCollection.set(admin.id, {
+        await adminCollection.set(admin.id, {
             name: admin.name,
             avatar: admin.avatar,
             phoneNumber: admin.phoneNumber,
-            email: admin.email
+            email: admin.email,
+            role: admin.role
         })
+
+        return { statusCode: 200, body: { message: 'success'}}
     }
 }

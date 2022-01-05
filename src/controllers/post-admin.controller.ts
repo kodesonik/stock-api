@@ -1,9 +1,9 @@
 export default function makePostAdminController(
-    addAdmin:any
+    addAdmin
 ) {
     return async function postAdminController(httpRequest) {
         try {
-            return addAdmin(httpRequest.data)
+            return addAdmin(httpRequest.body)
         } catch (err) {
             console.log(err.message)
         }

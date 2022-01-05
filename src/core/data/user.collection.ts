@@ -2,7 +2,7 @@ import { FirestoreDb } from "../../db";
 
 export default class UserCollection<T> extends  FirestoreDb<T> {
     constructor() {
-        super('user')
+        super('users')
     }
 
     async addShop(ownerId: string, shopId: string) {

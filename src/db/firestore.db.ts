@@ -9,7 +9,7 @@ export default class FirestoreDb<T> {
     }
 
 
-    async get(conditions?: any): Promise<T[]> {
+    async get(conditions?): Promise<T[]> {
        const collection = this.makeRequestWithConditions(conditions)
        const docs = await collection.get()
        const result = []
@@ -23,23 +23,23 @@ export default class FirestoreDb<T> {
     }
 
     async add(data: T): Promise<{ id: string }> {
-        const res =  await this._collection.add(data)
+        const res =  await this._collection.add({...data, deletedAt: null})
         return { id: res.id }
     }
 
-    async update(id: string, data: T | any) {
+    async update(id: string, data: T | unknown) {
        return this._collection.doc(id).update(data)
     }
 
     async set(id: string, data: T) {
-        return this._collection.doc(id).set(data)
+        return this._collection.doc(id).set({...data, deletedAt: null})
     }
 
     async remove(id: string) {
         return this._collection.doc(id).delete()
     }
 
-    async makeArrayUnion(item: any) {
+    async makeArrayUnion(item) {
         return firestore.FieldValue.arrayUnion(item)
     }
 

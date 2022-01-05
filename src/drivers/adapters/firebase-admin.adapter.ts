@@ -1,5 +1,5 @@
 
-export default function makeFirebaseAdminAdapter(admin: any){
+export default function makeFirebaseAdminAdapter(admin){
     return async function firebaseAdminAdapter() {
         const serviceAccount = require("path/to/serviceAccountKey.json");
         admin.initializeApp({

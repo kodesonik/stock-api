@@ -5,6 +5,7 @@ export default class FirebaseAuthentification {
     }
 
     signup(data) {
+        console.log(data)
         return this.auth().createUser(data)
     }
 }

@@ -6,4 +6,5 @@ export default interface IEmployee {
     name: string,
     phoneNumber: string,
     role: Role,
+    shopId: string
 }

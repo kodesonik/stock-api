@@ -1,4 +1,5 @@
-import { IOwner, Role, User } from "."
+import { IOwner, Role } from "."
+import User from './user.model'
 
 export default class Owner extends User implements IOwner {
     private _email: string

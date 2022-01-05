@@ -1,4 +1,5 @@
-import { IAdmin, Role, User } from "."
+import { IAdmin, Role } from "."
+import User from './user.model'
 
 export default class Admin extends User implements IAdmin {
     private _email: string

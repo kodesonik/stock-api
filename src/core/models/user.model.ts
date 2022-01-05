@@ -21,7 +21,7 @@ export default abstract class User {
     }
 
     get id() {
-        return this._name
+        return this._id
     }
 
     set id(value: string) {
@@ -37,11 +37,11 @@ export default abstract class User {
     }
 
     get phoneNumber() {
-        return this,this.phoneNumber
+        return this._phoneNumber
     }
 
     get role() {
-        return this.phoneNumber
+        return this._role
     }
 
 }

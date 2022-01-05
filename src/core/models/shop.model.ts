@@ -22,6 +22,10 @@ import { IShop } from "."
         this._accountExpiredAt = accountExpiredAt
         this._geolocation = geolocation
     }
+    
+    set id (value: string) {
+        this._id = value
+    }
 
     get id () {
         return this._id
@@ -43,7 +47,4 @@ import { IShop } from "."
         return this._geolocation
     }
 
-    set id (value: string) {
-        this._id = value
-    }
 }

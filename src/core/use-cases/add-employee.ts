@@ -8,7 +8,7 @@ export default function makeAddAddEmployee(
 ) {
     return async function addAdmin(data: IEmployee) {
         if (!data) throw new Error('')
-        const employee = new Employee(data.id, data.avatar, data.name, data.phoneNumber, data.role)
+        const employee = new Employee(data.id, data.avatar, data.name, data.phoneNumber, data.role, data.shopId)
         
         const authRes = await firebaseAuthentification.signup({
             photoURL: employee.avatar,
@@ -23,7 +23,8 @@ export default function makeAddAddEmployee(
             name: employee.name,
             avatar: employee.avatar,
             phoneNumber: employee.phoneNumber,
-            role: employee.role
+            role: employee.role,
+            shopId: employee.shopId
         })
     }
 }

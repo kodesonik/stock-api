@@ -1,9 +1,15 @@
-import { expressAppAdapter, firebaseAdminAddpater } from './drivers/adapters';
+import * as admin from 'firebase-admin'
+const serviceAccount = require("./drivers/config/serviceAccountKey.json")
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+})
+
+
+import { expressAppAdapter } from './drivers/adapters';
 import app from './drivers/config/app';
 import environnment from './drivers/config/environnment.dev';
 import { routes } from './drivers/routes';
 
-firebaseAdminAddpater()
 // rest of the code remains same
 expressAppAdapter(app, routes)
 
